@@ -13,10 +13,10 @@ import {
 
 const API_URL = "https://legal-ai-backend-6kw0.onrender.com"; 
 
-// --- TOAST COMPONENT ---
+
 const Toast = ({ message, type, onClose }) => {
   useEffect(() => {
-    const timer = setTimeout(onClose, 5000); // Show for 5 seconds for slower ops
+    const timer = setTimeout(onClose, 5000); 
     return () => clearTimeout(timer);
   }, [onClose]);
 
@@ -30,7 +30,7 @@ const Toast = ({ message, type, onClose }) => {
   );
 };
 
-// --- TYPEWRITER ---
+
 const Typewriter = ({ text }) => {
   const [displayedText, setDisplayedText] = useState("");
   const hasRun = useRef(false);
@@ -58,7 +58,7 @@ const Typewriter = ({ text }) => {
   return <span>{displayedText}</span>;
 };
 
-// --- SPINNER ---
+
 const Spinner = () => (
   <svg className="animate-spin h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -94,7 +94,7 @@ function App() {
     
     try {
       setLoading(true);
-      // FIX: Increase timeout to 5 minutes (300,000ms) for large PDF OCR
+      
       const res = await axios.post(`${API_URL}/upload`, formData, {
         timeout: 300000 
       });
@@ -120,7 +120,7 @@ function App() {
   const handleAnalyze = async () => {
     setLoading(true);
     try {
-      // Analysis also needs more time for large text
+      
       const res = await axios.post(`${API_URL}/analyze`, { session_id: sessionId }, { timeout: 120000 });
       const parsed = JSON.parse(res.data.risks);
       setRisks(parsed.risks || []);
