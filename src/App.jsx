@@ -11,7 +11,7 @@ import {
   ClipboardDocumentIcon
 } from '@heroicons/react/24/outline';
 
-const API_URL = "http://localhost:5000"; 
+const API_URL = "https://legal-ai-backend-6kw0.onrender.com"; 
 
 // --- TOAST COMPONENT ---
 const Toast = ({ message, type, onClose }) => {
@@ -217,7 +217,7 @@ function App() {
         <div className={activeTab === 'upload' ? 'block animate-fade-in' : 'hidden'}>
           <div className="max-w-xl mx-auto mt-20 text-center">
             <h2 className="text-3xl font-bold mb-4">Start your Analysis</h2>
-            <p className="text-slate-500 mb-8">Upload a legal contract (PDF) to identify risks and ask questions.</p>
+            <p className="text-slate-500 mb-8">Upload a legal contract (*PDF) to identify risks and ask questions.</p>
             
             <div className="border-2 border-dashed border-slate-300 rounded-xl p-10 bg-white shadow-sm hover:border-sky-500 transition group">
               <input type="file" onChange={(e) => setFile(e.target.files[0])} className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-sky-700 hover:file:bg-sky-100 mb-4 cursor-pointer" />
